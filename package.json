@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "前端技术文档汇总",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/zhangfy1994/technology-doc/issues"
   },
-  "homepage": "https://github.com/zhangfy1994/technology-doc#readme"
+  "homepage": "https://github.com/zhangfy1994/technology-doc#readme",
+  "volta": {
+    "node": "16.17.0"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0-rc.12",
+    "puppeteer": "^18.0.5"
+  }
 }
