@@ -1,15 +1,27 @@
-const nestedObject = {
-  a: 1,
-  b: {
-    c: 2,
-    d: {
-      e: 3,
-    },
-  },
-  f: 4,
-  g: [1, 2, { h: 1, k: 2, l: { m: 1 } }],
-};
+// 深拷贝
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
 
+function deepCopy2(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map((item) => deepCopy2(item));
+  } else if (isObject(obj)) {
+    const newObj = {};
+    for (const key in obj) {
+      newObj[key] = deepCopy2(obj[key]);
+    }
+    return newObj;
+  } else {
+    return obj;
+  }
+}
+
+function isObject(obj) {
+  return Object.prototype.toString.call(obj) === "[object Object]";
+}
+
+// 扁平化js对象
 function isObj(o) {
   return typeof o === "object" && o !== null;
 }
@@ -39,5 +51,3 @@ function flattenObj(obj) {
 
   return res;
 }
-
-console.log(JSON.stringify(flattenObj(nestedObject)));
